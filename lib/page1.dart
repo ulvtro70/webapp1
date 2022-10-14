@@ -14,7 +14,7 @@ class Page1 extends StatelessWidget {
       body: FlutterMap(
         options: MapOptions(
           center: LatLng(42.58, 12.43),
-          zoom: 6,
+          zoom: 2,
         ),
         children: [
           TileLayer(
@@ -24,7 +24,15 @@ class Page1 extends StatelessWidget {
             ),
             subdomains: const ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'],
             userAgentPackageName: 'dev.fleaflet.flutter_map.example',
-          )
+          ),
+          TileLayer(
+            wmsOptions: WMSTileLayerOptions(
+              baseUrl: 'https://opencache.statkart.no/gatekeeper/gk/gk.open?',
+              layers: ['norgeskart_bakgrunn'],
+            ),
+            subdomains: const ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'],
+            userAgentPackageName: 'dev.fleaflet.flutter_map.example',
+          ),
         ],
       ),
     );
