@@ -72,9 +72,14 @@ class _Page1State extends State<Page1> {
                   child: const Text('Flytt')),
               ElevatedButton(
                   onPressed: (() {
-                    _mapController.move(LatLng(61.97, 9.26), 9);
+                    _mapController.move(LatLng(61.97, 9.25), 9);
                   }),
                   child: const Text('Flytt2')),
+              ElevatedButton(
+                  onPressed: (() {
+                    _mapController.rotate(0);
+                  }),
+                  child: const Text('Nullstill rotation')),
               Text(
                   'Center => Latitude:${latLngCenter?.latitude.toStringAsFixed(2)}, Longitude:${latLngCenter?.longitude.toStringAsFixed(2)}'),
               Text(
@@ -85,11 +90,11 @@ class _Page1State extends State<Page1> {
             child: FlutterMap(
               mapController: _mapController,
               options: MapOptions(
-                center: LatLng(61.97, 9.26),
+                center: LatLng(61.97, 9.25),
                 zoom: 9,
               ),
               children: [
-                TileLayer(
+                /*TileLayer(
                   wmsOptions: WMSTileLayerOptions(
                     baseUrl: 'https://{s}.s2maps-tiles.eu/wms/?',
                     layers: ['s2cloudless-2018_3857'],
@@ -97,19 +102,19 @@ class _Page1State extends State<Page1> {
                   subdomains: const ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'],
                   userAgentPackageName: 'dev.fleaflet.flutter_map.example',
                   opacity: 1,
-                ),
+                ),*/
                 TileLayer(
                   wmsOptions: WMSTileLayerOptions(
                     baseUrl:
                         'https://opencache.statkart.no/gatekeeper/gk/gk.open?',
                     layers: ['norgeskart_bakgrunn'],
                   ),
-                  opacity: 0.5,
+                  opacity: 1,
                 ),
                 MarkerLayer(
                   markers: [
                     Marker(
-                        point: LatLng(61.97, 9.26),
+                        point: LatLng(61.97, 9.25),
                         builder: (context) => Container(
                               decoration: BoxDecoration(
                                   border: Border.all(
