@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:webapp1/page1.dart';
-import 'package:webapp1/page2.dart';
-import 'package:webapp1/page3.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -11,8 +8,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  Widget _Page = Page1();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,34 +25,27 @@ class _MainPageState extends State<MainPage> {
             ListTile(
               title: const Text('MenyItem1'),
               onTap: () {
-                setState(() {
-                  _Page = const Page1();
-                });
-                Navigator.pop(context);
+                Navigator.popAndPushNamed(context, '/page1');
               },
             ),
             ListTile(
               title: const Text('MenyItem2'),
               onTap: () {
-                setState(() {
-                  _Page = const Page2();
-                });
-                Navigator.pop(context);
+                Navigator.popAndPushNamed(context, '/page2');
               },
             ),
             ListTile(
               title: const Text('MenyItem3'),
               onTap: () {
-                setState(() {
-                  _Page = const Page3();
-                });
-                Navigator.pop(context);
+                Navigator.popAndPushNamed(context, '/page3');
               },
             ),
           ],
         ),
       ),
-      body: _Page,
+      body: const Center(
+        child: Text('Hovedside'),
+      ),
     );
   }
 }
